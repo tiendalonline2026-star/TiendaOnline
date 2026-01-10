@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda Online</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#111827;
+  color:#fff;
+}
+
+/* HEADER */
+header{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  padding:15px;
+  background:#000;
+}
+
+header img{
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+header h1{
+  font-size:1.4rem;
+}
+
+/* CATEGORIAS */
+.categories{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:15px;
+}
+
+.categories button{
+  padding:8px 14px;
+  border:none;
+  border-radius:10px;
+  background:#1f2933;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* CONTENEDOR */
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+}
+
+/* PRODUCTO */
+.product{
+  background:#1f2933;
+  border-radius:15px;
+  overflow:hidden;
+}
+
+.product img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.product-content{
+  padding:15px;
+}
+
+.price{
+  color:#22c55e;
+  font-size:1.2rem;
+  font-weight:bold;
+}
+
+.description{
+  margin:8px 0;
+  font-size:0.95rem;
+}
+
+.product-footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:10px;
+}
+
+.seller img{
+  width:35px;
+  height:35px;
+  border-radius:50%;
+}
+
+.whatsapp{
+  background:#25D366;
+  color:#fff;
+  padding:8px 12px;
+  border-radius:10px;
+  text-decoration:none;
+  font-size:0.9rem;
+}
+
+/* BOTON FLOTANTE */
+.whatsapp-float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:55px;
+  height:55px;
+  background:#25D366;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:28px;
+  font-weight:bold;
+  z-index:1000;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="tienda.jpg">
+  <h1>Nuevo Horizonte™</h1>
+</header>
+
+<div class="categories">
+  <button onclick="filterCategory('all')">Todos</button>
+  <button onclick="filterCategory('juguetes')">Juguetes</button>
+  <button onclick="filterCategory('ferreteria')">Ferretería</button>
+  <button onclick="filterCategory('electricos')">Equipos Eléctricos</button>
+  <button onclick="filterCategory('Otros')">Otros</button>
+</div>
+
+<section class="container">
+
+<!-- JUGUETES -->
+<div class="product" data-category="juguetes">
+  <img src="J1.jpg">
+  <div class="product-content">
+    <div class="price">$2300 CUP</div>
+    <div class="description">Super set de policia. CONTENIDO: - Dos revolver con cartucheras - Placa de Policia - Tres cartuchos</div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+    </div>
+  </div>
+</div>
+  
+<div class="product" data-category="juguetes">
+  <img src="J2.jpg">
+  <div class="product-content">
+    <div class="price">$2800 CUP</div>
+    <div class="description">Pizarra Magnetica para dibujar</div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+    </div>
+  </div>
+</div>
+  
+<div class="product" data-category="juguetes">
+  <img src="J3.jpg">
+  <div class="product-content">
+    <div class="price">$4000 CUP</div>
+    <div class="description">Juguete de avión o aerobús con hermosas y atractivas luces intermitentes y sonidos realistas de motor a chorro, acción de choca y avanza (Bump and Go), batería incluida (los colores pueden variar)</div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+    </div>
+  </div>
+</div>
+  
+<div class="product" data-category="juguetes">
+  <img src="J4.jpg">
+  <div class="product-content">
+    <div class="price">$2000 CUP</div>
+    <div class="description">Juguetes para Niñas</div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+    </div>
+  </div>
+</div>
+  
+<div class="product" data-category="juguetes">
+  <img src="J5.jpg">
+  <div class="product-content">
+    <div class="price">$1800 CUP</div>
+    <div class="description">Pistola de Agua</div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+    </div>
+  </div>
+</div>
+  
+<div class="product" data-category="juguetes">
+  <img src="J6.jpg">
+  <div class="product-content">
+    <div class="price">$1200 CUP</div>
+    <div class="description">Kit para hacer pulseras para niñas</div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+    </div>
+  </div>
+</div>
+  
+<div class="product" data-category="juguetes">
+  <img src="J7.jpg">
+  <div class="product-content">
+    <div class="price">$2500 CUP</div>
+    <div class="description">SET DE CARRO DE DOBLE CARA QUE REBOTA CON DISEÑO </div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+    </div>
+  </div>
+</div>
+  
+<div class="product" data-category="juguetes">
+  <img src="J8.jpg">
+  <div class="product-content">
+    <div class="price">$9500 CUP</div>
+    <div class="description">Carro De Control Remoto Bugatti 1:12 Bateria Recargable</div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+    </div>
+  </div>
+</div>
+  
+<div class="product" data-category="juguetes">
+  <img src="J9.jpg">
+  <div class="product-content">
+    <div class="price">$5500 CUP</div>
+    <div class="description">Descripción: Coche de control remoto deformable, Característica: Escala 1:18, Cambio de dos formas, Efecto de luz genial, Sonido, Conducción</div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+    </div>
+  </div>
+</div>
+
+<!-- FERRETERIA -->
+<div class="product" data-category="ferreteria">
+  <img src="ferreteria1.jpg">
+  <div class="product-content">
+    <div class="price">$12</div>
+    <div class="description">Ferretería 1</div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+    </div>
+  </div>
+</div>
+
+<!-- ELECTRODOMÉSTICOS -->
+
+<div class="product" data-category="electricos">
+  <img src="E1.jpg">
+  <div class="product-content">
+    <div class="price">$10.000 CUP</div>
+    <div class="description">
+      Radio Retro con Bluetooth 5.0, Am/FM/SW Retro, nostálgico pequeño,
+      Radio de Cocina con Altavoz Grande de 5 W, admite función USB/TF/TWS
+    </div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+    </div>
+  </div>
+</div>
+
+<div class="product" data-category="electricos">
+  <img src="E2.jpg">
+  <div class="product-content">
+    <div class="price">$13.000 CUP</div>
+    <div class="description">Actualice su televisor
+con el decodificador DTMB, el estándar oficial de Cuba. Disfrute de múltiples canales en Alta Definición (HD) y transforme su sala en un centro multimedia.
+
+Características Clave:
+
+ • Canales: Acceso a la parrilla completa de la TDT cubana (varios canales SD y HD).
+ • Multimedia USB: Reproduce casi cualquier formato de video, incluyendo los más populares como MP4, AVI, MKV, VOB y H.264, además de música y fotos.
+ • Grabación (PVR): Grabe sus programas favoritos y véalos cuando quiera.</div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+    </div>
+  </div>
+</div>
+
+<div class="product" data-category="electricos">
+  <img src="E3.jpg">
+  <div class="product-content">
+    <div class="price">$7.000 CUP</div>
+    <div class="description">Molinillo de café eléctrico, molino de grano de acero inoxidable, licuadora eléctrica de granos de café, trituradora de granos automática, herramienta de molienda para hierbas condimentos, especias, café, granos, hierbas medicinales chinas, nueces, frijoles y otros medicamentos</div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+    </div>
+  </div>
+</div>
+
+<div class="product" data-category="electricos">
+  <img src="E4.jpg">
+  <div class="product-content">
+    <div class="price">$11.000 CUP</div>
+    <div class="description">Altavoz Inalámbrico Sing-e ZQS4275 con Carga Solar, Antena Externa, Radio FM, Lector de Tarjetas USB y TF</div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+    </div>
+  </div>
+</div>
+
+<div class="product" data-category="electricos">
+  <img src="E5.jpg">
+  <div class="product-content">
+    <div class="price">$1800 CUP</div>
+    <div class="description">Control Remoto KT1440 Universal para TV , Cajas y Más
+</div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+    </div>
+  </div>
+</div>
+
+<div class="product" data-category="electricos">
+  <img src="E6.jpg">
+  <div class="product-content">
+    <div class="price">$4500 CUP</div>
+    <div class="description">Lonchera portátil con calefacción para adultos, lonchera eléctrica de acero inoxidable de 60 onzas con contenedor de 24 onzas, recargable (12 V/24 V/110 V) para trabajo, viajes y automóvil</div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+      </div>
+  </div>
+</div>
+  
+<div class="product" data-category="electricos">
+  <img src="E7.jpg">
+  <div class="product-content">
+    <div class="price">$5000 CUP</div>
+    <div class="description">V-TEG
+      lámpara de emergencia LED recargable 60 SMD, cuenta con 2 batería de lithium incluído cable USB de carga</div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+      </div>
+  </div>
+</div>
+<!-- Otros -->
+<div class="product" data-category="Otros">
+  <img src="O1.jpg">
+  <div class="product-content">
+    <div class="price">$100 CUP(C/u)</div>
+    <div class="description">Maquinas de Afeitar</div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+    </div>
+  </div>
+</div>
+
+<div class="product" data-category="Otros">
+  <img src="O2.jpg">
+  <div class="product-content">
+    <div class="price">$100 CUP (C/U)</div>
+    <div class="description">Vela Negra Anti-Mosquito</div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+    </div>
+  </div>
+</div>
+  
+<div class="product" data-category="Otros">
+  <img src="O3.jpg">
+  <div class="product-content">
+    <div class="price">$100 CUP (C/U)</div>
+    <div class="description">Inciensos para Mosquitos y Moscas</div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+    </div>
+  </div>
+</div>
+  
+<div class="product" data-category="Otros">
+  <img src="O4.jpg">
+  <div class="product-content">
+    <div class="price">$150</div>
+    <div class="description">Fosforeras</div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+    </div>
+  </div>
+</div>
+  
+<div class="product" data-category="Otros">
+  <img src="O5.jpg">
+  <div class="product-content">
+    <div class="price">$15.000 CUP</div>
+    <div class="description"> Fogón de Petroleo -Quemador de 10 mechas -Capacidad de tanque de 1.5 Litros</div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+    </div>
+  </div>
+</div>
+  
+<div class="product" data-category="Otros">
+  <img src="O.jpg">
+  <div class="product-content">
+    <div class="price">$5</div>
+    <div class="description">Alimento 1</div>
+    <div class="product-footer">
+      <div class="seller"><img src="logo-vendedor.png"></div>
+      <a class="whatsapp" href="#" onclick="sendWhatsApp(this)">Comprar</a>
+    </div>
+  </div>
+</div>
+  
+</section>
+
+<!-- BOTON FLOTANTE -->
+<a class="whatsapp-float" href="https://wa.me/5352407271" target="_blank">W</a>
+
+<script>
+function filterCategory(cat){
+  document.querySelectorAll('.product').forEach(p=>{
+    p.style.display = (cat==='all' || p.dataset.category===cat) ? 'block':'none';
+  });
+}
+
+function sendWhatsApp(btn){
+  const product = btn.closest('.product');
+  const name = product.querySelector('.description').innerText;
+  window.open(
+    'https://wa.me/5352407271?text='+encodeURIComponent(name),
+    '_blank'
+  );
+}
+</script>
+
+</body>
+</html>
